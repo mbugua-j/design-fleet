@@ -18,6 +18,8 @@
   alongside the bundled dashboard.
 - Include the dashboard package and model updates and native launcher compatibility
   fix (`--sync-session=off`).
+- Preserve rounded card borders and reflow Settings navigation on narrow screens
+  so that section controls and panel content are not clipped.
 
 Model access depends on the signed-in account. Loading/inference smoke tests do
 not verify complete Figma, implementation, browser or pull-request workflows.

@@ -4273,13 +4273,17 @@ tbody tr:last-child td {
   .crew-grid,
   .crew-toolbar,
   .theme-mode-grid,
-  .settings-layout,
   .command-grid {
     grid-template-columns: 1fr;
   }
 
+  .settings-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .settings-nav {
     flex-direction: row;
+    flex-wrap: wrap;
     border-right: 0;
     border-bottom: 1px solid var(--cp-border);
     padding-right: 0;
@@ -4287,7 +4291,8 @@ tbody tr:last-child td {
   }
 
   .settings-nav-button {
-    flex: 1;
+    flex: 1 1 140px;
+    min-height: 44px;
   }
 
 }

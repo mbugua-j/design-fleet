@@ -45,6 +45,17 @@ class ResponsiveShellContractTests(unittest.TestCase):
         self.assertNotIn("metric-icon", metric_component)
         self.assertIn("metric-info-button", metric_component)
 
+    def test_mobile_settings_navigation_reflows_without_widening_the_panel(self) -> None:
+        tablet_styles = STYLE_SOURCE.split("@media (max-width: 840px) {", 1)[1]
+        self.assertIn(".settings-layout {", tablet_styles)
+        layout = tablet_styles.split(".settings-layout {", 1)[1].split("}", 1)[0]
+        navigation = tablet_styles.split(".settings-nav {", 1)[1].split("}", 1)[0]
+        button = tablet_styles.split(".settings-nav-button {", 1)[1].split("}", 1)[0]
+        self.assertIn("grid-template-columns: minmax(0, 1fr);", layout)
+        self.assertIn("flex-wrap: wrap;", navigation)
+        self.assertIn("flex: 1 1 140px;", button)
+        self.assertIn("min-height: 44px;", button)
+
     def test_station_filters_keep_one_track_and_portal_their_menus(self) -> None:
         filter_blocks = re.findall(r"\.station-filter-bar\s*\{([^}]+)\}", STYLE_SOURCE)
         tracks = [block for block in filter_blocks if "grid-template-columns:" in block]

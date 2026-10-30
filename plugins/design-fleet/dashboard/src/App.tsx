@@ -4318,7 +4318,7 @@ function SettingsView({
                         </div>
                         <Badge
                           appearance="outline"
-                          color="subtle"
+                          color="informative"
                           shape="rounded"
                         >
                           {mode === "system"
