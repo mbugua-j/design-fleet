@@ -1,0 +1,20 @@
+{
+  "name": "plain",
+  "label": "Plain English",
+  "description": "Says what each station does. Best if other people will use your fleet.",
+  "names": {
+    "designr": "Design-Explorer",
+    "engraver": "Asset-Cutter",
+    "design-review": "Design-Critic",
+    "contrarian": "Brief-Challenger",
+    "scribe": "Doc-Writer",
+    "draftsman": "Spec-Writer",
+    "envoy": "Stakeholder-Reporter",
+    "shipwright": "Implementer",
+    "surveyor": "Code-Reviewer",
+    "lookout": "Browser-Verifier",
+    "herald": "PR-Filer",
+    "buildr": "Preview-Builder",
+    "watchkeeper": "Comment-Watcher"
+  }
+}

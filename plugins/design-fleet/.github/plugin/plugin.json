@@ -1,0 +1,25 @@
+{
+  "name": "design-fleet",
+  "version": "0.3.7",
+  "description": "The Shipyard \u2014 thirteen design stations for Copilot CLI, plus a local dashboard for fleet health, live handoffs, model smoke tests, agent commands, GitHub accounts, usage credits, and crew model configuration. Each station runs on its own model and none may sign off its own work.",
+  "author": {
+    "name": "Joel Mbugua",
+    "url": "https://github.com/mbugua-j/design-fleet"
+  },
+  "homepage": "https://github.com/mbugua-j/design-fleet",
+  "repository": "https://github.com/mbugua-j/design-fleet",
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "figma",
+    "agents",
+    "fleet",
+    "dashboard",
+    "observability",
+    "design-system",
+    "wireframes",
+    "accessibility"
+  ],
+  "agents": "./agents/",
+  "skills": "./skills/"
+}

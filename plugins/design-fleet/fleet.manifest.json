@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "design-fleet",
+  "displayName": "Design Fleet",
+  "agentNamespace": "design-fleet",
+  "agentsDirectory": "agents",
+  "stationManifest": "crews/roles.json",
+  "crewsDirectory": "crews",
+  "entrypoint": "bin/fleet.py",
+  "capabilities": {
+    "telemetry": true,
+    "commandLaunch": true,
+    "smokeSuite": true,
+    "crewManagement": true,
+    "modelOverrides": true
+  }
+}

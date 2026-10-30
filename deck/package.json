@@ -1,0 +1,14 @@
+{
+  "name": "shipyard-fleet-deck",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A self-contained presentation about the Shipyard agent fleet.",
+  "type": "module",
+  "scripts": {
+    "start": "node serve.mjs",
+    "test": "node verify.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

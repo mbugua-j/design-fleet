@@ -1,0 +1,20 @@
+{
+  "name": "shipyard",
+  "label": "Shipyard",
+  "description": "The original harbour names. One yard, thirteen vessels.",
+  "names": {
+    "designr": "DesignR",
+    "engraver": "Engraver",
+    "design-review": "Design-Review",
+    "contrarian": "Contrarian",
+    "scribe": "Scribe",
+    "draftsman": "Draftsman",
+    "envoy": "Envoy",
+    "shipwright": "Shipwright",
+    "surveyor": "Surveyor",
+    "lookout": "Lookout",
+    "herald": "Herald",
+    "buildr": "BuildR",
+    "watchkeeper": "Watchkeeper"
+  }
+}

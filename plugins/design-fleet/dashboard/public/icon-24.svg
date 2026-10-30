@@ -1,0 +1,56 @@
+<svg width="24" height="24" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Design Fleet">
+<g clip-path="url(#clip0_df24)">
+<path d="M3.10458 54.1492C1.47916 54.4201 -0.000488347 53.1666 -0.000488419 51.5188L-0.000489034 37.4437C-0.000489205 33.533 2.82681 30.1955 6.68432 29.5525L31.9995 25.3333L31.9995 42.5563C31.9995 46.467 29.1722 49.8046 25.3147 50.4475L3.10458 54.1492Z" fill="url(#paint0_linear_df24)"/>
+<path d="M23.1046 63.4825C21.4792 63.7534 19.9995 62.4999 19.9995 60.8521L19.9995 46.777C19.9995 42.8663 22.8268 39.5288 26.6843 38.8859L55.9995 34C53.6913 34.3847 51.9995 36.3818 51.9995 38.7218L51.9995 51.8896C51.9995 55.8004 49.1722 59.1379 45.3147 59.7808L23.1046 63.4825Z" fill="url(#paint1_linear_df24)"/>
+<path d="M31.9995 38L31.9995 42.5563C31.9995 46.467 29.1722 49.8045 25.3147 50.4475L19.9995 51.3333L19.9995 46.777C19.9995 42.8663 22.8268 39.5288 26.6843 38.8859L31.9995 38Z" fill="url(#paint2_linear_df24)"/>
+<path d="M40.8944 -0.149161C42.5199 -0.420064 43.9995 0.833384 43.9995 2.48122L43.9995 16.5563C43.9995 20.467 41.1722 23.8045 37.3147 24.4475L7.99952 29.3333C10.3077 28.9486 11.9995 26.9515 11.9995 24.6115L11.9995 11.4437C11.9995 7.53296 14.8268 4.19544 18.6843 3.55253L40.8944 -0.149161Z" fill="url(#paint3_linear_df24)"/>
+<path d="M60.8944 9.18418C62.5199 8.91328 63.9995 10.1667 63.9995 11.8146L63.9995 25.8897C63.9995 29.8004 61.1722 33.1379 57.3147 33.7808L31.9995 38L31.9995 20.777C31.9995 16.8663 34.8268 13.5288 38.6843 12.8859L60.8944 9.18418Z" fill="url(#paint4_linear_df24)"/>
+<path d="M43.9995 12L43.9995 16.5563C43.9995 20.467 41.1722 23.8045 37.3147 24.4475L31.9995 25.3333L31.9995 20.777C31.9995 16.8663 34.8268 13.5288 38.6843 12.8859L43.9995 12Z" fill="url(#paint5_linear_df24)"/>
+<mask id="mask0_df24" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="19" y="9" width="45" height="55">
+<path d="M60.8932 9.18033C62.5185 8.90945 63.9985 10.1625 63.9987 11.8102V25.8854C63.9987 29.7961 61.1715 33.134 57.3141 33.777L51.9987 34.6628V51.8854C51.9987 55.7961 49.1715 59.134 45.3141 59.777L23.1041 63.4782C21.4788 63.7491 19.9988 62.496 19.9987 60.8483V51.3297L25.3141 50.443C29.1714 49.8 31.9986 46.463 31.9987 42.5524V25.3297L37.3141 24.443C41.1714 23.8 43.9986 20.463 43.9987 16.5524V11.9958L60.8932 9.18033Z" fill="#102784"/>
+</mask>
+<g mask="url(#mask0_df24)">
+<g filter="url(#filter0_f_df24)">
+<path d="M43.9991 23.3329V5.33295H-0.000854492V54.6663L31.9991 49.3329V25.3329L43.9991 23.3329Z" fill="url(#paint6_linear_df24)" fill-opacity="0.66"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_df24" x="-5.33419" y="-0.000386715" width="54.6667" height="60" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="2.66667" result="effect1_foregroundBlur_df24"/>
+</filter>
+<linearGradient id="paint0_linear_df24" x1="31.3328" y1="25.3333" x2="15.9995" y2="54.6667" gradientUnits="userSpaceOnUse">
+<stop stop-color="#26CFE8"/>
+<stop offset="1" stop-color="#0FAFFF"/>
+</linearGradient>
+<linearGradient id="paint1_linear_df24" x1="45.6662" y1="34.6667" x2="27.9995" y2="62.3333" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2052CB"/>
+<stop offset="1" stop-color="#102784"/>
+</linearGradient>
+<linearGradient id="paint2_linear_df24" x1="31.9995" y1="38" x2="25.9995" y2="51.3333" gradientUnits="userSpaceOnUse">
+<stop stop-color="#367AF2"/>
+<stop offset="1" stop-color="#2764E7"/>
+</linearGradient>
+<linearGradient id="paint3_linear_df24" x1="27.9995" y1="-0.666672" x2="27.9995" y2="28.6667" gradientUnits="userSpaceOnUse">
+<stop stop-color="#6FE8F5"/>
+<stop offset="1" stop-color="#3BD5FF"/>
+</linearGradient>
+<linearGradient id="paint4_linear_df24" x1="57.3328" y1="8.66667" x2="42.3328" y2="38" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0FAFFF"/>
+<stop offset="1" stop-color="#0094F0"/>
+</linearGradient>
+<linearGradient id="paint5_linear_df24" x1="31.9995" y1="25.3333" x2="41.9995" y2="11" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3BD5FF"/>
+<stop offset="1" stop-color="#29C3FF"/>
+</linearGradient>
+<linearGradient id="paint6_linear_df24" x1="27.7649" y1="50.371" x2="40.6658" y2="18.6663" gradientUnits="userSpaceOnUse">
+<stop stop-color="#102784"/>
+<stop offset="1" stop-color="#2052CB" stop-opacity="0"/>
+</linearGradient>
+<clipPath id="clip0_df24">
+<rect width="64" height="64" fill="white"/>
+</clipPath>
+</defs>
+</svg>

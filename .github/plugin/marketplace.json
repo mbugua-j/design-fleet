@@ -1,0 +1,32 @@
+{
+  "name": "mbugua-j",
+  "metadata": {
+    "description": "Design agents for GitHub Copilot CLI by Joel Mbugua.",
+    "version": "1.0.0"
+  },
+  "owner": {
+    "name": "mbugua-j",
+    "email": "noreply@github.com"
+  },
+  "plugins": [
+    {
+      "name": "design-fleet",
+      "source": "./plugins/design-fleet",
+      "description": "Thirteen design stations for Copilot CLI, plus a local dashboard for fleet health, live handoffs, model smoke tests, agent commands, GitHub accounts, usage credits, and crew model configuration \u2014 each station on its own model, none of them allowed to approve its own work.",
+      "version": "0.3.7",
+      "category": "design",
+      "keywords": [
+        "design",
+        "figma",
+        "agents",
+        "fleet",
+        "dashboard",
+        "observability",
+        "design-system",
+        "wireframes",
+        "accessibility",
+        "design-review"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+name: Validate fleet
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+
+      - name: Validate stations and crews
+        run: python3 plugins/design-fleet/bin/fleet.py check
+
+      - name: Test guidance contracts and watch state
+        run: python3 -m unittest discover -s plugins/design-fleet/tests -p 'test_*.py'
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Validate deck
+        run: npm --prefix deck test
+
+      - name: Install dashboard dependencies
+        working-directory: plugins/design-fleet/dashboard
+        run: corepack pnpm install --frozen-lockfile --no-trust-lockfile
+
+      - name: Validate dashboard
+        working-directory: plugins/design-fleet/dashboard
+        run: |
+          corepack pnpm lint
+          corepack pnpm test:pipeline
+          corepack pnpm test:accounts
+          corepack pnpm test:state
+          corepack pnpm test:server
+          corepack pnpm build
+          git diff --exit-code -- dist
+
+      - name: Every crew renders a full fleet
+        run: |
+          set -euo pipefail
+          for crew in shipyard plain avengers flintstones; do
+            out="${RUNNER_TEMP}/${crew}"
+            # shipyard is the shipped naming, so applying it collides by design
+            # and `apply` refuses it. Render it anyway to prove the pack is complete.
+            python3 plugins/design-fleet/bin/fleet.py apply \
+              --crew "$crew" --scope project --dir "$out" --allow-shipped-names > /dev/null
+            count=$(ls -1 "$out/.github/agents" | wc -l | tr -d ' ')
+            if [ "$count" -ne 13 ]; then
+              echo "::error::crew '$crew' produced $count agents, expected 13"
+              exit 1
+            fi
+            echo "  $crew: $count agents"
+          done
+
+      - name: Manifests are valid JSON and agree on version
+        run: |
+          python3 - <<'PY'
+          import json, sys
+
+          plugin = json.load(open('plugins/design-fleet/.github/plugin/plugin.json'))
+          market = json.load(open('.github/plugin/marketplace.json'))
+
+          entry = next((p for p in market['plugins'] if p['name'] == plugin['name']), None)
+          if entry is None:
+              sys.exit(f"marketplace.json does not list plugin '{plugin['name']}'")
+          if entry['version'] != plugin['version']:
+              sys.exit(
+                  f"version mismatch: plugin.json is {plugin['version']}, "
+                  f"marketplace.json says {entry['version']}"
+              )
+          print(f"manifests agree on version {plugin['version']}")
+          PY

@@ -1,0 +1,37 @@
+{
+  "name": "design-fleet-dashboard",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "pnpm@12.4.2",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint src",
+    "preview": "vite preview",
+    "test:pipeline": "node --import tsx --test tests/pipelineLayout.test.mjs",
+    "test:accounts": "node --import tsx --test tests/test_account_api.mjs",
+    "test:state": "node --import tsx --test tests/dashboardState.test.mjs",
+    "test:server": "python3 -m unittest discover -s tests -p 'test_*.py'"
+  },
+  "dependencies": {
+    "@fluentui/react-components": "^9.75.0",
+    "@fluentui/react-icons": "^2.0.344",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "styled-components": "^6.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "oxlint": "^1.89.0",
+    "tsx": "^4.23.15",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.5"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

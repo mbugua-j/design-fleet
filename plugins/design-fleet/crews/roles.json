@@ -1,0 +1,214 @@
+{
+  "version": 1,
+  "description": "Canonical station roster. Crew packs rename these; they never change what a station does. 'retired' maps a station that merged into another, so an old crew pack names a station that moved rather than one that never existed.",
+  "retired": {
+    "wireframer": "designr",
+    "curator": "envoy"
+  },
+  "stations": [
+    {
+      "id": "designr",
+      "group": "design",
+      "title": "Design station",
+      "purpose": "Settles structure and flows in grey, explores several Figma directions, or recreates a coded screen as editable frames.",
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "high",
+      "family": "OpenAI",
+      "edits": true,
+      "skills": [
+        "ui-delivery-guardrails"
+      ],
+      "needs": [
+        "figma-console"
+      ],
+      "display": "DesignR"
+    },
+    {
+      "id": "engraver",
+      "group": "design",
+      "title": "Asset station",
+      "purpose": "Cuts an icon into the full platform asset matrix, read from spec not memory.",
+      "model": "claude-sonnet-5.5",
+      "family": "Anthropic",
+      "edits": true,
+      "needs": [
+        "figma-console"
+      ],
+      "display": "Engraver"
+    },
+    {
+      "id": "design-review",
+      "group": "check",
+      "title": "Design audit",
+      "purpose": "Runs independent accessibility and usability reviews using public W3C/WAI references, access perspectives and evidence-qualified priorities. May block.",
+      "model": "grok-4.7",
+      "family": "xAI",
+      "edits": false,
+      "skills": [
+        "accessibility-evaluation-method",
+        "ui-delivery-guardrails"
+      ],
+      "needs": [],
+      "optionalNeeds": [
+        "figma-console"
+      ],
+      "display": "Design-Review"
+    },
+    {
+      "id": "contrarian",
+      "group": "check",
+      "title": "Challenge station",
+      "purpose": "Attacks the brief, the assumptions and the success metric. May block.",
+      "model": "claude-sonnet-5.5",
+      "family": "Anthropic",
+      "edits": false,
+      "skills": [
+        "ui-delivery-guardrails"
+      ],
+      "needs": [],
+      "display": "Contrarian"
+    },
+    {
+      "id": "scribe",
+      "group": "words",
+      "title": "Documentation station",
+      "purpose": "Component docs, design-system guidance and decision records.",
+      "model": "claude-sonnet-5.5",
+      "family": "Anthropic",
+      "edits": true,
+      "skills": [
+        "ui-delivery-guardrails"
+      ],
+      "needs": [],
+      "display": "Scribe"
+    },
+    {
+      "id": "draftsman",
+      "group": "words",
+      "title": "Specification station",
+      "purpose": "Measured redlines, states, behaviour and testable acceptance criteria.",
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "high",
+      "family": "OpenAI",
+      "edits": true,
+      "skills": [
+        "ui-delivery-guardrails"
+      ],
+      "needs": [
+        "figma-console"
+      ],
+      "display": "Draftsman"
+    },
+    {
+      "id": "envoy",
+      "group": "words",
+      "title": "Reporting station",
+      "purpose": "Status notes and decks that argue a case, both assembled from verified state and ending in a named ask.",
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "medium",
+      "family": "OpenAI",
+      "edits": true,
+      "needs": [],
+      "display": "Envoy"
+    },
+    {
+      "id": "shipwright",
+      "group": "ship",
+      "title": "Implementation station",
+      "purpose": "The only station that writes code. Red-green-refactor, then the gates.",
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "high",
+      "family": "OpenAI",
+      "edits": true,
+      "skills": [
+        "ui-delivery-guardrails"
+      ],
+      "needs": [],
+      "display": "Shipwright"
+    },
+    {
+      "id": "surveyor",
+      "group": "ship",
+      "title": "Code review station",
+      "purpose": "Independent diff review on another model family. No edit tool. May block.",
+      "model": "claude-sonnet-5.5",
+      "family": "Anthropic",
+      "edits": false,
+      "skills": [
+        "ui-delivery-guardrails"
+      ],
+      "needs": [],
+      "display": "Surveyor",
+      "shellRequired": true,
+      "shellReason": "Runs the project's tests to verify a finding before reporting it."
+    },
+    {
+      "id": "lookout",
+      "group": "ship",
+      "title": "Verification station",
+      "purpose": "Drives a real browser and proves the app mounts. May block.",
+      "model": "mai-code-1.1-flash",
+      "family": "Microsoft",
+      "edits": false,
+      "skills": [
+        "ui-delivery-guardrails"
+      ],
+      "needs": [
+        "playwright"
+      ],
+      "display": "Lookout"
+    },
+    {
+      "id": "herald",
+      "group": "ship",
+      "title": "Delivery station",
+      "purpose": "Files the pull request and reads the checks back. Never merges.",
+      "model": "gpt-5.6-terra",
+      "family": "OpenAI",
+      "edits": false,
+      "skills": [
+        "ui-delivery-guardrails"
+      ],
+      "needs": [
+        "gh"
+      ],
+      "display": "Herald",
+      "shellRequired": true,
+      "shellReason": "Runs git and gh to push the branch and read checks back."
+    },
+    {
+      "id": "buildr",
+      "group": "ship",
+      "title": "Integration station",
+      "purpose": "Merges every open pull request into one preview and proves it still mounts.",
+      "model": "claude-sonnet-5.5",
+      "family": "Anthropic",
+      "edits": true,
+      "needs": [
+        "gh"
+      ],
+      "display": "BuildR"
+    },
+    {
+      "id": "watchkeeper",
+      "group": "ship",
+      "title": "Watch station",
+      "purpose": "Triages new review comments and newly conflicting pull requests, then routes them by ownership. Runs when called, or on a schedule you create with /every. Runs cheap.",
+      "model": "claude-haiku-5.5",
+      "family": "Anthropic",
+      "edits": false,
+      "needs": [
+        "gh"
+      ],
+      "display": "Watchkeeper",
+      "shellRequired": true,
+      "shellReason": "Runs gh to read pull-request comments and mergeability, and stores last-seen comment and conflict state."
+    }
+  ],
+  "groups": {
+    "design": "Make the thing",
+    "check": "Independent checks — cannot approve their own work",
+    "words": "Explain the thing",
+    "ship": "Get it built and shipped"
+  }
+}

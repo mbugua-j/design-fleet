@@ -1,0 +1,20 @@
+{
+  "name": "avengers",
+  "label": "Avengers",
+  "description": "An example themed pack. Copy it to make your own.",
+  "names": {
+    "designr": "Stark",
+    "engraver": "Shuri",
+    "design-review": "Vision",
+    "contrarian": "Loki",
+    "scribe": "Jarvis",
+    "draftsman": "Fury",
+    "envoy": "Coulson",
+    "shipwright": "Rogers",
+    "surveyor": "Wanda",
+    "lookout": "Barton",
+    "herald": "Quicksilver",
+    "buildr": "Hulk",
+    "watchkeeper": "Heimdall"
+  }
+}

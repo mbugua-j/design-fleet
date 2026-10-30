@@ -1,0 +1,20 @@
+{
+  "name": "flintstones",
+  "label": "Flintstones",
+  "description": "An example themed pack. Copy it to make your own.",
+  "names": {
+    "designr": "Fred",
+    "engraver": "Barney",
+    "design-review": "Betty",
+    "contrarian": "Dino",
+    "scribe": "Pebbles",
+    "draftsman": "BammBamm",
+    "envoy": "Slate",
+    "shipwright": "Rubble",
+    "surveyor": "Hoppy",
+    "lookout": "Arnold",
+    "herald": "Rockhead",
+    "buildr": "Bronto",
+    "watchkeeper": "LoudRock"
+  }
+}

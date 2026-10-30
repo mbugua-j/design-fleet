@@ -1,0 +1,110 @@
+@font-face {
+  font-family: "Asta Sans";
+  src: url("fonts/AstaSans-Latin-Variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* Keep the app's category structure, using the deck's monochrome palette. */
+:root {
+  --cp-pipeline-accent: var(--cp-accent);
+  --cp-pipeline-muted: var(--cp-text-muted);
+  --cp-pipeline-border: var(--cp-border);
+  --cp-pipeline-border-strong: var(--cp-border-strong);
+  --cp-pipeline-warning: var(--cp-warning);
+  --cp-pipeline-success: var(--cp-success);
+  --cp-pipeline-danger: var(--cp-danger);
+}
+
+.pipeline-panel {
+  --pipeline-card: color-mix(in srgb, var(--cp-surface) 94%, var(--cp-surface-soft));
+  --pipeline-border: color-mix(in srgb, var(--cp-pipeline-border) 74%, var(--cp-pipeline-border-strong));
+  --pipeline-muted: color-mix(in srgb, var(--cp-pipeline-muted) 86%, var(--cp-text));
+  --pipeline-edge: color-mix(in srgb, var(--cp-pipeline-accent) 76%, var(--cp-text));
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1280px;
+  padding: 0 32px 12px;
+  border-radius: 16px;
+  transform: translateX(-50%) scale(1.3);
+  transform-origin: top center;
+  background-color: var(--cp-surface);
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--cp-pipeline-border-strong) 30%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: var(--cp-text);
+  font-family: "Asta Sans", "Segoe UI", Aptos, Calibri, sans-serif;
+}
+.pipeline-panel :is(p, h2, h3, h4) { margin: 0; }
+.pipeline-panel svg { width: 20px; height: 20px; fill: currentColor; flex: none; }
+.pipeline-toolbar { display: flex; align-items: center; gap: 10px; min-height: 52px; }
+.pipeline-toolbar h2 { font-size: 14px; line-height: 20px; }
+.pipeline-prototype { border: 1px solid var(--cp-pipeline-accent); border-radius: 999px; padding: 2px 7px; font-size: 9px; line-height: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--pipeline-muted); }
+.pipeline-workflow-label { display: flex; align-items: center; gap: 6px; margin-left: 10px; color: var(--pipeline-muted); font-size: 11px; }
+.pipeline-workflow-label svg { width: 15px; height: 15px; color: var(--cp-pipeline-accent); }
+.pipeline-canvas { position: relative; width: 1216px; height: 440px; }
+.pipeline-panel .pipeline-connectors { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.pipeline-connectors [data-edge] { fill: none; stroke: var(--pipeline-edge); stroke-width: 2; stroke-linecap: round; marker-end: url(#pipeline-arrow); }
+.pipeline-connectors [data-kind="conditional"] { stroke-dasharray: 6 7; stroke: color-mix(in srgb, var(--pipeline-muted) 68%, var(--cp-pipeline-accent)); }
+#pipeline-arrow path { fill: var(--pipeline-edge); }
+.pipeline-connectors text { fill: var(--pipeline-muted); font-size: 10px; font-weight: 500; text-anchor: middle; paint-order: stroke; stroke: var(--cp-surface); stroke-width: 5px; stroke-linejoin: round; }
+.pipeline-phase { position: absolute; left: calc(var(--x) * 1px); top: calc(var(--y) * 1px); color: var(--pipeline-muted); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.pipeline-node {
+  --pipeline-rail: var(--cp-pipeline-accent);
+  --pipeline-rail-width: 4px;
+  position: absolute;
+  left: calc(var(--x) * 1px);
+  top: calc(var(--y) * 1px);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 152px;
+  height: 96px;
+  padding: 9px 9px 8px 24px;
+  border: 1px solid var(--pipeline-border);
+  border-radius: 14px;
+  background: var(--pipeline-card);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--cp-text) 12%, transparent);
+}
+.pipeline-node::before { content: ""; position: absolute; top: 8px; bottom: 8px; left: 7px; width: var(--pipeline-rail-width); border-radius: 999px; background: var(--pipeline-rail); }
+.pipeline-node[data-category="writer"] {
+  --pipeline-rail: color-mix(in srgb, var(--cp-pipeline-warning) 72%, var(--cp-pipeline-accent));
+  --pipeline-rail-width: 6px;
+  border-color: color-mix(in srgb, var(--pipeline-rail) 42%, var(--pipeline-muted));
+  background: color-mix(in srgb, var(--cp-surface) 88%, var(--cp-pipeline-warning));
+}
+.pipeline-node[data-category="operation"] { --pipeline-rail: color-mix(in srgb, var(--cp-pipeline-accent) 55%, var(--cp-pipeline-success)); }
+.pipeline-node[data-category="outcome"] { border-color: color-mix(in srgb, var(--pipeline-rail) 30%, var(--pipeline-muted)); background: color-mix(in srgb, var(--pipeline-card) 88%, var(--cp-pipeline-accent)); }
+.pipeline-role { display: flex; align-items: center; min-height: 26px; gap: 5px; padding-right: 17px; color: var(--pipeline-muted); font-size: 8px; font-weight: 600; letter-spacing: .025em; line-height: 11px; text-transform: uppercase; }
+.pipeline-role svg { width: 15px; height: 15px; color: var(--pipeline-rail); }
+.pipeline-node h3 { margin-top: 2px; font-size: 13px; line-height: 17px; white-space: nowrap; }
+.pipeline-node .pipeline-model { margin-top: auto; font-size: 10.5px; line-height: 14px; color: var(--pipeline-muted); white-space: nowrap; }
+.pipeline-model code { font: inherit; }
+.pipeline-node .pipeline-detail { margin-top: 3px; color: var(--pipeline-muted); font-size: 10.5px; line-height: 14px; }
+.pipeline-drag { position: absolute; top: 5px; right: 5px; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 7px; background: color-mix(in srgb, var(--pipeline-muted) 8%, transparent); color: var(--pipeline-muted); pointer-events: none; }
+.pipeline-drag svg { width: 16px; height: 16px; }
+.pipeline-port { position: absolute; width: 8px; height: 8px; border: 2px solid var(--pipeline-rail); border-radius: 50%; background: var(--cp-surface); box-shadow: 0 0 0 2px var(--cp-surface); }
+.pipeline-port[data-side="left"] { top: 44px; left: -5px; }
+.pipeline-port[data-side="right"] { top: 44px; right: -5px; }
+.pipeline-port[data-side="top"] { top: -5px; left: calc(50% - 4px); }
+.pipeline-port[data-side="bottom"] { bottom: -5px; left: calc(50% - 4px); }
+.pipeline-port[data-port="monitoring-output"] { left: calc(32% - 4px); }
+.pipeline-port[data-port="integration-output"] { left: calc(68% - 4px); }
+.pipeline-feedback { display: grid; gap: 14px; padding: 16px; border: 1px solid color-mix(in srgb, var(--cp-pipeline-danger) 16%, var(--pipeline-border)); border-radius: 16px; background: color-mix(in srgb, var(--cp-pipeline-danger) 4%, var(--pipeline-card)); }
+.pipeline-feedback-heading { display: flex; align-items: center; gap: 10px; }
+.pipeline-feedback-icon { display: grid; place-items: center; width: 34px; height: 34px; flex: none; border-radius: 10px; background: color-mix(in srgb, var(--cp-pipeline-danger) 11%, transparent); color: var(--cp-pipeline-danger); }
+.pipeline-feedback-heading h3 { font-size: 14px; line-height: 18px; }
+.pipeline-feedback-heading p { margin-top: 2px; font-size: 10.5px; line-height: 15px; color: var(--pipeline-muted); }
+.pipeline-feedback-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.pipeline-feedback-route { display: grid; align-content: start; gap: 10px; padding: 11px 12px; border: 1px solid color-mix(in srgb, var(--cp-pipeline-danger) 26%, var(--pipeline-border)); border-radius: 12px; background: color-mix(in srgb, var(--cp-pipeline-danger) 3%, var(--pipeline-card)); }
+.pipeline-feedback-route h4 { width: fit-content; padding: 2px 7px; border-radius: 999px; background: color-mix(in srgb, var(--cp-pipeline-danger) 9%, transparent); color: color-mix(in srgb, var(--cp-pipeline-danger) 82%, var(--cp-text)); font-size: 9.5px; line-height: 14px; font-weight: 600; }
+.pipeline-feedback-flow { display: grid; grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr); align-items: center; gap: 6px; min-height: 28px; }
+.pipeline-feedback-flow strong { font-size: 10px; line-height: 14px; font-weight: 650; }
+.pipeline-feedback-target { text-align: right; }
+.pipeline-feedback-arrow { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: color-mix(in srgb, var(--cp-pipeline-danger) 9%, transparent); color: var(--cp-pipeline-danger); }
+.pipeline-feedback-arrow svg { width: 14px; height: 14px; }
+.pipeline-panel .pipeline-key { display: flex; align-items: center; gap: 18px; height: 24px; margin-top: 4px; color: var(--pipeline-muted); font-size: 10px; }
+.pipeline-key span { display: flex; align-items: center; gap: 6px; }
+.pipeline-key span::before { content: ""; width: 24px; border-top: 2px solid var(--pipeline-edge); }
+.pipeline-key span + span::before { border-top-style: dashed; }

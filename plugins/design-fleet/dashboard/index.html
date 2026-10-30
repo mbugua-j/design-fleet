@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const param = params.get("theme") || params.get("clawpilotTheme");
+        let mode = "system";
+        try {
+          const stored = JSON.parse(
+            window.localStorage.getItem("design-fleet:appearance:v1") || "null",
+          );
+          if (stored && ["system", "light", "dark"].includes(stored.mode)) {
+            mode = stored.mode;
+          }
+        } catch {
+          mode = "system";
+        }
+        if (param === "light" || param === "dark") mode = param;
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const resolved = mode === "system" ? (systemDark ? "dark" : "light") : mode;
+        document.documentElement.dataset.themeMode = mode;
+        document.documentElement.dataset.theme = resolved;
+        document.documentElement.dataset.palette = "fluent";
+        document.documentElement.style.colorScheme = resolved;
+      })();
+    </script>
+    <style>
+      :root { background: Canvas; color: CanvasText; }
+    </style>
+    <meta
+      name="description"
+      content="Local observability dashboard for the design-fleet Copilot agents."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+    <link rel="icon" href="/favicon.ico?v=2" sizes="16x16 24x24 32x32" />
+    <title>Design Fleet Dashboard</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
